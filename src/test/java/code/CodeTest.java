@@ -11,14 +11,13 @@ public class CodeTest {
     void parameterTest() {
         // given
         CodeChecker codeChecker = CodeChecker.rules()
-                .limitParameters(3)
+                .limitParameters(2)
                 .build();
 
         // when
-        boolean check = codeChecker.checkParameterCount("racingcar", true);
+        boolean check = codeChecker.checkParameterCount("pairmatching", true);
 
         // then
-        System.out.println(codeChecker.getMessage());
-        assertThat(check).isEqualTo(true);
+        assertThat(check).as(codeChecker.getMessage()).isEqualTo(true);
     }
 }
